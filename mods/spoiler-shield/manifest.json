@@ -1,0 +1,15 @@
+{
+  "id": "spoiler-shield",
+  "name": "Антиспойлер",
+  "author": "Dxrk",
+  "version": "1.0",
+  "description": "Размывает описания и комментарии, чтобы случайно не прочитать спойлер. Коснись размытого блока, и он откроется. Кнопка с глазом включает и выключает защиту, выбор запоминается.",
+  "matches": ["jut.su", "*.jut.su", "anilibria.*", "yummyani.me", "*.yummyani.me"],
+  "frames": "top",
+  "runAt": "end",
+  "css": "style.css",
+  "screenshot": "screenshot.png",
+  "js": "script.js",
+  "permissions": ["style", "dom", "storage"],
+  "api": ["ready", "storage"]
+}
