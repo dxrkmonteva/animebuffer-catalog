@@ -1,0 +1,13 @@
+#abx-sleep-btn {
+  position: fixed; left: 10px; top: 10px; z-index: 2147483000;
+  min-width: 36px; height: 36px; padding: 0 10px; border: 0; border-radius: 18px;
+  background: rgba(20, 20, 35, .55); color: #fff; font: 600 14px/36px sans-serif;
+  opacity: .45; transition: opacity .2s;
+}
+#abx-sleep-btn:active, #abx-sleep-btn.abx-on { opacity: .95; }
+#abx-sleep-btn.abx-on { background: rgba(90, 70, 200, .8); }
+#abx-sleep-fade {
+  position: fixed; inset: 0; z-index: 2147482999; background: #000; opacity: 0;
+  pointer-events: none; transition: opacity 6s linear;
+}
+#abx-sleep-fade.abx-dark { opacity: .85; }

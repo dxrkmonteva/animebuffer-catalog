@@ -1,0 +1,15 @@
+{
+  "id": "sleep-timer",
+  "name": "Таймер сна",
+  "author": "Dxrk",
+  "version": "1.0",
+  "description": "Смотришь перед сном? Лунная кнопка у плеера ставит таймер на 15, 30, 45 или 60 минут: по окончании видео ставится на паузу, а экран плавно затемняется. Работает и внутри плееров.",
+  "matches": ["jut.su", "*.jut.su", "anilibria.*", "yummyani.me", "*.yummyani.me"],
+  "frames": "all",
+  "runAt": "end",
+  "css": "style.css",
+  "screenshot": "screenshot.png",
+  "js": "script.js",
+  "permissions": ["style", "dom", "video"],
+  "api": ["onVideo", "toast"]
+}
