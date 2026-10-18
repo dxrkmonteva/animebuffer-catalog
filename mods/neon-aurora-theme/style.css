@@ -1,0 +1,133 @@
+/* AnimeBuffer example mod: Neon Aurora Theme */
+
+:root {
+  --ab-bg: #070914;
+  --ab-bg-2: #10152b;
+  --ab-panel: rgba(18, 23, 45, .78);
+  --ab-text: #edf2ff;
+  --ab-muted: #9aa7c7;
+  --ab-cyan: #55e8ff;
+  --ab-violet: #a879ff;
+  --ab-pink: #ff6bd6;
+  --ab-border: rgba(133, 157, 255, .22);
+  --ab-shadow: 0 12px 45px rgba(67, 92, 255, .20);
+}
+
+html {
+  background: var(--ab-bg) !important;
+  color-scheme: dark !important;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(85, 232, 255, .10), transparent 28%),
+    radial-gradient(circle at 85% 25%, rgba(168, 121, 255, .12), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(255, 107, 214, .08), transparent 34%),
+    linear-gradient(135deg, var(--ab-bg), var(--ab-bg-2)) !important;
+  color: var(--ab-text) !important;
+  min-height: 100vh;
+  animation: ab-bg-drift 18s ease-in-out infinite alternate;
+}
+
+/* Не вмешиваемся в само содержимое медиа. */
+img, video, canvas, iframe, embed, object, svg image {
+  filter: none !important;
+}
+
+/* Часто встречающиеся панели/карточки */
+article, section, main > div, [role="dialog"], [role="main"] {
+  border-color: var(--ab-border) !important;
+}
+
+button,
+[role="button"],
+input,
+select,
+textarea {
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease,
+              background-color .18s ease, color .18s ease !important;
+}
+
+button:hover,
+[role="button"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(85, 232, 255, .20),
+              0 8px 26px rgba(85, 232, 255, .12) !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  border-color: rgba(85, 232, 255, .65) !important;
+  box-shadow: 0 0 0 3px rgba(85, 232, 255, .10),
+              0 0 24px rgba(85, 232, 255, .12) !important;
+}
+
+a {
+  color: var(--ab-cyan) !important;
+  text-decoration-color: rgba(85, 232, 255, .35) !important;
+  transition: color .18s ease, text-shadow .18s ease !important;
+}
+
+a:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 14px rgba(85, 232, 255, .70) !important;
+}
+
+/* Мягкое свечение у распространённых карточек */
+article:hover,
+[class*="card"]:hover,
+[class*="Card"]:hover {
+  box-shadow: var(--ab-shadow) !important;
+  transition: box-shadow .22s ease !important;
+}
+
+/* Кастомный scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(85, 232, 255, .42) rgba(255, 255, 255, .04);
+}
+
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, .03);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ab-cyan), var(--ab-violet));
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Неоновая рамка для видео без изменения картинки */
+video {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(85, 232, 255, .16),
+              0 0 32px rgba(85, 232, 255, .10);
+  transition: box-shadow .25s ease, transform .25s ease !important;
+}
+
+video:hover {
+  box-shadow: 0 0 0 1px rgba(85, 232, 255, .36),
+              0 0 42px rgba(168, 121, 255, .20) !important;
+}
+
+@keyframes ab-bg-drift {
+  0%   { background-position: 0% 0%, 100% 20%, 50% 100%, 0% 50%; }
+  100% { background-position: 18% 8%, 82% 34%, 42% 92%, 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

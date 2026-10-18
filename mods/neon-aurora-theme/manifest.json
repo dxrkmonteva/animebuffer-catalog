@@ -1,0 +1,11 @@
+{
+  "id": "neon-aurora-theme",
+  "name": "Neon Aurora Theme",
+  "version": "1.0.0",
+  "description": "Неоновая CSS-тема с анимированным фоном, свечением, hover-эффектами и мягкими переходами.",
+  "matches": ["*"],
+  "frames": "top",
+  "runAt": "start",
+  "css": "style.css",
+  "js": "script.js"
+}
