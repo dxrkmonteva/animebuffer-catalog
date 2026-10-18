@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "name": "AnimeBuffer Catalog",
+  "updated": "2026-10-17",
+  "revoked": [],
+  "mods": [
+    {
+      "id": "cinema-mode",
+      "name": "Режим кино",
+      "author": "Dxrk",
+      "version": "1.0",
+      "description": "Пока видео играет, всё вокруг плеера плавно темнеет. На паузе страница возвращается. Лучше всего там, где видео лежит прямо на странице (например, jut.su).",
+      "matches": [
+        "jut.su",
+        "*.jut.su",
+        "anilibria.*",
+        "yummyani.me",
+        "*.yummyani.me"
+      ],
+      "frames": "top",
+      "runAt": "end",
+      "permissions": [
+        "style",
+        "dom",
+        "video"
+      ],
+      "api": [
+        "onVideo"
+      ],
+      "dir": "mods/cinema-mode",
+      "files": {
+        "manifest.json": "8dbf6ad793856a7cc3284092f52483b894b6994902894b423964e3ac21c90b6b",
+        "script.js": "bf59afb62cd94b75c777e11f3c2b11a5f68293734d8685de5ad0f37881f50f8a",
+        "style.css": "5a5684f751fdcfb97513bec6dad85ff455ae382c606ff12567a8b00ae9eb6b7c"
+      },
+      "bundle": "ce45fd2744569aa2b0c75ec79306319c05edec2b72eb3aa09c786185f1d9ee4d"
+    },
+    {
+      "id": "episode-notes",
+      "name": "Заметки к серии",
+      "author": "Dxrk",
+      "version": "1.0",
+      "description": "Кнопка с карандашом в углу страницы: пиши заметку к серии или тайтлу. Заметка привязана к адресу страницы и хранится только на телефоне.",
+      "matches": [
+        "jut.su",
+        "*.jut.su",
+        "anilibria.*",
+        "yummyani.me",
+        "*.yummyani.me"
+      ],
+      "frames": "top",
+      "runAt": "end",
+      "permissions": [
+        "style",
+        "dom",
+        "storage"
+      ],
+      "api": [
+        "ready",
+        "storage",
+        "toast"
+      ],
+      "dir": "mods/episode-notes",
+      "files": {
+        "manifest.json": "237a7eb1275a75ec9feff82f6005127052c82571b4c7e14aca1738100ff00c8f",
+        "script.js": "fde8dd49b5c58bf4dc935dffc63f46c60eddfc610eeb4dbe7ba8c65184a4db48",
+        "style.css": "e0706325b3392ef3e1eaa48a70da35f728411169aa5940cb1f090e47acffe5d9"
+      },
+      "bundle": "c6f90ec1fb3451efed120747ad68f91bc2aa9fe9b3301e9e71a52463724ba91b"
+    }
+  ]
+}
