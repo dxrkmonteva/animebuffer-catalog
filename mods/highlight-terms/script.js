@@ -1,7 +1,7 @@
 animebuffer.ready(function () {
   var terms = animebuffer.storage.get(
     'terms',
-    ['quantum', 'WASM', 'physics','anime','о моем перерождении в слизь']
+    ['quantum', 'WASM', 'physics']
   );
 
   if (!Array.isArray(terms) || !terms.length) return;
@@ -61,7 +61,7 @@ animebuffer.ready(function () {
 
       var mark = document.createElement('mark');
       mark.textContent = match;
-      mark.setAttribute('data-animebuffer-highlight', '1');
+      mark.setAttribute('data-ab-highlight', '1');
       fragment.appendChild(mark);
 
       position = offset + match.length;
@@ -78,7 +78,7 @@ animebuffer.ready(function () {
   });
 
   animebuffer.css(
-    'mark[data-animebuffer-highlight] {' +
+    'mark[data-ab-highlight] {' +
     'background: rgba(192,132,252,.42);' +
     'color: inherit;' +
     'border-radius: 3px;' +
