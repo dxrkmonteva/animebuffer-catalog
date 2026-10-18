@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+# index.json собирается на GitHub и лежит в ветке catalog
+index.json

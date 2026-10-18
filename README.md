@@ -10,7 +10,7 @@ mods/<id>/script.js        код (по желанию)
 mods/<id>/style.css        стили (по желанию)
 mods/<id>/screenshot.png   скриншот (по желанию)
 catalog.config.json        название каталога и список отозванных модов
-index.json                 собирается ботом, руками не править
+index.json                 собирается ботом и лежит в ветке catalog (в main его нет)
 tools/                     проверка модов (запускается на GitHub автоматически)
 ```
 
@@ -26,7 +26,8 @@ tools/                     проверка модов (запускается �
 4. **Проверяльщик берётся из `main`.** Автор не может подменить `tools/` в своей заявке. Любая заявка, которая трогает `tools/` или `.github/`, подозрительна: отклоняй её.
 5. **Хеши файлов.** В `index.json` для каждого файла записан sha256. Приложение сверяет его при установке и отказывается ставить файл, изменившийся после проверки.
 6. **Приложение повторяет проверку.** Оно ещё раз анализирует код и не ставит мод, если нашёл запрещённое или недозаявленное.
-7. **Отзыв.** Если вредный мод всё-таки прошёл, добавь его в `revoked` в `catalog.config.json`. При следующем обновлении каталога приложение у всех отключит этот мод и не даст его включить.
+7. **Отдельная ветка `catalog`.** Приложение читает не `main`, а ветку `catalog`, которую пересобирает только бот после успешной проверки. Бот не пишет в `main`, поэтому защита `main` ему не мешает.
+8. **Отзыв.** Если вредный мод всё-таки прошёл, добавь его в `revoked` в `catalog.config.json`. При следующем обновлении каталога приложение у всех отключит этот мод и не даст его включить.
 
 Что это НЕ гарантирует: проверка по тексту кода не заменяет чтение. Хитрый код может обойти шаблоны, поэтому пункт 1 главный: **читай каждую заявку**.
 
@@ -62,12 +63,24 @@ tools/                     проверка модов (запускается �
 
 ## Для куратора: первый запуск
 
-1. Создай на GitHub публичный репозиторий `animebuffer-catalog` и загрузи в него эти файлы (на телефоне: «Add file → Upload files», сохраняя папки).
-2. Замени `ВЛАДЕЛЕЦ` в `.github/CODEOWNERS` на свой ник.
-3. В Settings → Branches → Add rule для `main`: «Require a pull request before merging» и «Require status checks to pass» (выбери «Проверка модов»), «Require review from Code Owners». Запрети force-push.
-4. В Settings → Actions → General → Workflow permissions выбери «Read and write permissions» (бот обновляет `index.json`).
-5. В AnimeBuffer: меню ⋮ → Настройки → «Адрес каталога» и вставь:
-   `https://raw.githubusercontent.com/ТВОЙ_НИК/animebuffer-catalog/main/index.json`
+1. Создай на GitHub публичный репозиторий (например, `animebuffer-catalog`) и загрузи в него файлы из архива вместе с папками, включая скрытую папку `.github`.
+2. В `.github/CODEOWNERS` должен стоять твой ник (`* @твой_ник`). В этом архиве он уже вписан.
+3. Settings → Actions → General → Workflow permissions → **Read and write permissions** (бот выкладывает ветку `catalog`). Пункт «Allow GitHub Actions to create and approve pull requests» **не включай**.
+4. Зайди во вкладку Actions и запусти «Опубликовать каталог» вручную (Run workflow). Появится ветка `catalog`.
+5. Settings → Rules → Rulesets → New branch ruleset (защита `main`):
+   - **Enforcement status: Active** (при Disabled правила не работают!)
+   - Target: Default branch
+   - ✓ Restrict deletions
+   - ✓ Require a pull request before merging, Required approvals: 0
+   - ✗ Require review from Code Owners (ты единственный, кто может сливать, а свою заявку одобрить нельзя: получишь тупик)
+   - ✓ Require status checks to pass, добавь проверку **«Проверка модов»** (она появится в списке после первой заявки)
+   - ✓ Block force pushes
+   - ✗ Require code scanning results (без настроенного CodeQL заявки будут блокироваться)
+6. В AnimeBuffer: «Моды» → «Каталог модов» → вставь адрес:
+   `https://raw.githubusercontent.com/ТВОЙ_НИК/ИМЯ_РЕПОЗИТОРИЯ/catalog/index.json`
+   (обрати внимание на `/catalog/` перед `index.json`).
+
+Правки в репозиторий теперь вносятся через pull request (даже твои): в вебе GitHub сам предложит создать ветку и заявку при загрузке файлов.
 
 ## Для куратора: что проверять в заявке
 
@@ -75,8 +88,8 @@ tools/                     проверка модов (запускается �
 - Обрати внимание на `matches`: `*` (все сайты) оправдан только если моду это правда нужно.
 - Красные разрешения (`network`, `cookies`, `passwords`, `clipboard`): спроси автора, зачем они, и не принимай без ясного ответа.
 - Заявки, которые меняют `tools/`, `.github/` или `index.json`, отклоняй.
-- После принятия бот сам пересоберёт `index.json`.
+- После слияния бот сам пересоберёт ветку `catalog`.
 
 ## Отозвать мод
 
-Открой `catalog.config.json` и добавь в `revoked` id мода (`"bad-mod"`) или конкретную версию (`"bad-mod@1.2"`). Через минуту бот пересоберёт индекс.
+Открой `catalog.config.json` и добавь в `revoked` id мода (`"bad-mod"`) или конкретную версию (`"bad-mod@1.2"`). После слияния бот пересоберёт ветку `catalog` примерно за минуту.
