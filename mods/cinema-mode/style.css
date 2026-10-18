@@ -1,0 +1,12 @@
+/* Режим кино: тень вокруг видео закрывает остальную страницу */
+video {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  clip-path: inset(-100vmax);
+  transition: box-shadow 0.4s ease;
+}
+html.abx-cinema video {
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.92);
+}
+html.abx-cinema body {
+  background: #000 !important;
+}

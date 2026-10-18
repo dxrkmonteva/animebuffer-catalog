@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "name": "AnimeBuffer Catalog",
+  "updated": "2026-10-18",
+  "revoked": [],
+  "mods": [
+    {
+      "id": "cinema-mode",
+      "name": "Режим кино",
+      "author": "Dxrk",
+      "version": "1.0",
+      "description": "Пока видео играет, всё вокруг плеера плавно темнеет. На паузе страница возвращается. Лучше всего там, где видео лежит прямо на странице (например, jut.su).",
+      "matches": [
+        "jut.su",
+        "*.jut.su",
+        "anilibria.*",
+        "yummyani.me",
+        "*.yummyani.me"
+      ],
+      "frames": "top",
+      "runAt": "end",
+      "permissions": [
+        "style",
+        "dom",
+        "video"
+      ],
+      "api": [
+        "onVideo"
+      ],
+      "dir": "mods/cinema-mode",
+      "files": {
+        "manifest.json": "8dbf6ad793856a7cc3284092f52483b894b6994902894b423964e3ac21c90b6b",
+        "script.js": "bf59afb62cd94b75c777e11f3c2b11a5f68293734d8685de5ad0f37881f50f8a",
+        "style.css": "5a5684f751fdcfb97513bec6dad85ff455ae382c606ff12567a8b00ae9eb6b7c"
+      },
+      "bundle": "ce45fd2744569aa2b0c75ec79306319c05edec2b72eb3aa09c786185f1d9ee4d"
+    },
+    {
+      "id": "episode-notes",
+      "name": "Заметки к серии",
+      "author": "Dxrk",
+      "version": "1.0",
+      "description": "Кнопка с карандашом в углу страницы: пиши заметку к серии или тайтлу. Заметка привязана к адресу страницы и хранится только на телефоне.",
+      "matches": [
+        "jut.su",
+        "*.jut.su",
+        "anilibria.*",
+        "yummyani.me",
+        "*.yummyani.me"
+      ],
+      "frames": "top",
+      "runAt": "end",
+      "permissions": [
+        "style",
+        "dom",
+        "storage"
+      ],
+      "api": [
+        "ready",
+        "storage",
+        "toast"
+      ],
+      "dir": "mods/episode-notes",
+      "files": {
+        "manifest.json": "237a7eb1275a75ec9feff82f6005127052c82571b4c7e14aca1738100ff00c8f",
+        "script.js": "fde8dd49b5c58bf4dc935dffc63f46c60eddfc610eeb4dbe7ba8c65184a4db48",
+        "style.css": "e0706325b3392ef3e1eaa48a70da35f728411169aa5940cb1f090e47acffe5d9"
+      },
+      "bundle": "c6f90ec1fb3451efed120747ad68f91bc2aa9fe9b3301e9e71a52463724ba91b"
+    },
+    {
+      "id": "highlight-terms",
+      "name": "Highlight Terms",
+      "author": "Dxrk",
+      "version": "1.1",
+      "description": "Подсвечивает заданные слова на странице.",
+      "matches": [
+        "*.com",
+        "*.net",
+        "*.org",
+        "*.ru",
+        "*.uz",
+        "*.io",
+        "*.dev",
+        "*.app",
+        "*.tv",
+        "*.me",
+        "*.site"
+      ],
+      "frames": "all",
+      "runAt": "end",
+      "permissions": [
+        "style",
+        "dom",
+        "storage"
+      ],
+      "api": [
+        "css",
+        "ready",
+        "storage"
+      ],
+      "dir": "mods/highlight-terms",
+      "files": {
+        "manifest.json": "c738bb210ca7c2e4c7d5dc562df54b971acb69968ae3e090e184c1c85f313549",
+        "script.js": "7a537c830407c6d56e25253cd9ca409620fd022947bf9cf60832e647b57159c3"
+      },
+      "bundle": "8cdb51243b0184a9d451451a2cdbdbffa88c61d1ebad46f8fe3574bf385b1c20"
+    },
+    {
+      "id": "moments",
+      "name": "Моменты",
+      "author": "Dxrk",
+      "version": "1.0",
+      "description": "Закладки внутри серии. Нажми ромбик у плеера, добавь текущую секунду с подписью (лучший бой, опенинг, сцена после титров), а потом возвращайся к ней одним касанием. Моменты хранятся только на телефоне.",
+      "matches": [
+        "jut.su",
+        "*.jut.su",
+        "anilibria.*",
+        "yummyani.me",
+        "*.yummyani.me"
+      ],
+      "frames": "all",
+      "runAt": "end",
+      "permissions": [
+        "style",
+        "dom",
+        "video",
+        "storage"
+      ],
+      "api": [
+        "onVideo",
+        "storage",
+        "toast"
+      ],
+      "dir": "mods/moments",
+      "files": {
+        "manifest.json": "9066993f5a774465b85e7914c7a070aa16ed731ecd91c8709a91f717f8959d3a",
+        "screenshot.png": "612edd8fc66ed80b24fba14a207075bb102b25aa2adc618f30f48dcef9126b8b",
+        "script.js": "402252dd097ba9eb64934a5db66abcadeb9b7381eb5761eacaa7551453e26795",
+        "style.css": "a8904d151fe1199f9196161f8553aa89bc96463cacc35b00b72c61eda2d7aa0b"
+      },
+      "bundle": "d53f173c1dd86364242e99e38be8216ba586a5b02fc5db0ce08ae52364e1f370",
+      "screenshot": "screenshot.png"
+    },
+    {
+      "id": "sleep-timer",
+      "name": "Таймер сна",
+      "author": "Dxrk",
+      "version": "1.0",
+      "description": "Смотришь перед сном? Лунная кнопка у плеера ставит таймер на 15, 30, 45 или 60 минут: по окончании видео ставится на паузу, а экран плавно затемняется. Работает и внутри плееров.",
+      "matches": [
+        "jut.su",
+        "*.jut.su",
+        "anilibria.*",
+        "yummyani.me",
+        "*.yummyani.me"
+      ],
+      "frames": "all",
+      "runAt": "end",
+      "permissions": [
+        "style",
+        "dom",
+        "video"
+      ],
+      "api": [
+        "onVideo",
+        "toast"
+      ],
+      "dir": "mods/sleep-timer",
+      "files": {
+        "manifest.json": "01c70a187b1eaf111e5dadc031ec200d20915c007dfa5c37c01bb13dd9954aa2",
+        "screenshot.png": "314bddb317660966eda9393262723e2f5a1e66f327de74f73d4c83e5c7f2658a",
+        "script.js": "bf6bb33e57375d11ce3b252bcba921e34edd67c61dfe04473dffa3e6fa4247da",
+        "style.css": "04ded6c9690c7c5d3320af281c7a95e8ba25e38fe3f331d4cc01b87d26bc5598"
+      },
+      "bundle": "8d38005c26862ed43adc9f3b0db7f5a81692a21721925079a8f83089584ea92d",
+      "screenshot": "screenshot.png"
+    },
+    {
+      "id": "spoiler-shield",
+      "name": "Антиспойлер",
+      "author": "Dxrk",
+      "version": "1.0",
+      "description": "Размывает описания и комментарии, чтобы случайно не прочитать спойлер. Коснись размытого блока, и он откроется. Кнопка с глазом включает и выключает защиту, выбор запоминается.",
+      "matches": [
+        "jut.su",
+        "*.jut.su",
+        "anilibria.*",
+        "yummyani.me",
+        "*.yummyani.me"
+      ],
+      "frames": "top",
+      "runAt": "end",
+      "permissions": [
+        "style",
+        "dom",
+        "storage"
+      ],
+      "api": [
+        "ready",
+        "storage"
+      ],
+      "dir": "mods/spoiler-shield",
+      "files": {
+        "manifest.json": "8ea72f2900be1a47fe9299e6e7ea3e4b892a3e5b3a24da8a00edb2f3cf43e092",
+        "screenshot.png": "0b96dcde395561feefc93156b3cf190df575664553edc81547160d890be7f81e",
+        "script.js": "2d88a5a9a2a21bc258b993b536a533e7249de14fb24cf677c5a08c9392dc135f",
+        "style.css": "77225d3aff7ac393dfbcecc22ce9c15b97c301a1dbeda470bae092120d3d864a"
+      },
+      "bundle": "49a695c00a6d5502152e1da0aaa2075626253da67219ef23065626b6f31e8650",
+      "screenshot": "screenshot.png"
+    }
+  ]
+}

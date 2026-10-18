@@ -1,0 +1,14 @@
+{
+  "id": "episode-notes",
+  "name": "Заметки к серии",
+  "author": "Dxrk",
+  "version": "1.0",
+  "description": "Кнопка с карандашом в углу страницы: пиши заметку к серии или тайтлу. Заметка привязана к адресу страницы и хранится только на телефоне.",
+  "matches": ["jut.su", "*.jut.su", "anilibria.*", "yummyani.me", "*.yummyani.me"],
+  "frames": "top",
+  "runAt": "end",
+  "css": "style.css",
+  "js": "script.js",
+  "permissions": ["style", "dom", "storage"],
+  "api": ["ready", "storage", "toast"]
+}

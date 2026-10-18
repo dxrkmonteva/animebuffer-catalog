@@ -1,0 +1,33 @@
+{
+  "id": "highlight-terms",
+  "name": "Highlight Terms",
+  "author": "Dxrk",
+  "version": "1.1",
+  "description": "Подсвечивает заданные слова на странице.",
+  "matches": [
+    "*.com",
+    "*.net",
+    "*.org",
+    "*.ru",
+    "*.uz",
+    "*.io",
+    "*.dev",
+    "*.app",
+    "*.tv",
+    "*.me",
+    "*.site"
+  ],
+  "frames": "all",
+  "runAt": "end",
+  "js": "script.js",
+  "permissions": [
+    "style",
+    "dom",
+    "storage"
+  ],
+  "api": [
+    "css",
+    "ready",
+    "storage"
+  ]
+}

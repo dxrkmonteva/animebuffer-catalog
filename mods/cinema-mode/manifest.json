@@ -1,0 +1,14 @@
+{
+  "id": "cinema-mode",
+  "name": "Режим кино",
+  "author": "Dxrk",
+  "version": "1.0",
+  "description": "Пока видео играет, всё вокруг плеера плавно темнеет. На паузе страница возвращается. Лучше всего там, где видео лежит прямо на странице (например, jut.su).",
+  "matches": ["jut.su", "*.jut.su", "anilibria.*", "yummyani.me", "*.yummyani.me"],
+  "frames": "top",
+  "runAt": "end",
+  "css": "style.css",
+  "js": "script.js",
+  "permissions": ["style", "dom", "video"],
+  "api": ["onVideo"]
+}
