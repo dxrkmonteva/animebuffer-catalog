@@ -1,0 +1,15 @@
+{
+  "id": "moments",
+  "name": "Моменты",
+  "author": "Dxrk",
+  "version": "1.0",
+  "description": "Закладки внутри серии. Нажми ромбик у плеера, добавь текущую секунду с подписью (лучший бой, опенинг, сцена после титров), а потом возвращайся к ней одним касанием. Моменты хранятся только на телефоне.",
+  "matches": ["jut.su", "*.jut.su", "anilibria.*", "yummyani.me", "*.yummyani.me"],
+  "frames": "all",
+  "runAt": "end",
+  "css": "style.css",
+  "screenshot": "screenshot.png",
+  "js": "script.js",
+  "permissions": ["style", "dom", "video", "storage"],
+  "api": ["onVideo", "storage", "toast"]
+}
