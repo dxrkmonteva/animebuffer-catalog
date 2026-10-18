@@ -1,4 +1,8 @@
-name: Собрать index.json
+name: Опубликовать каталог
+
+# После каждого изменения в main проверяет моды, собирает index.json и выкладывает
+# снимок (index.json + mods/) в отдельную ветку «catalog». Приложение читает именно её.
+# В main бот ничего не пишет, поэтому защита main (только через pull request) ему не мешает.
 
 on:
   push:
@@ -7,23 +11,35 @@ on:
       - "mods/**"
       - "catalog.config.json"
       - "tools/**"
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  publish:
+    name: Опубликовать каталог
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Проверить и пересобрать index.json
-        run: python tools/check_mods.py --write
-      - name: Закоммитить, если изменился
+      - name: Самопроверка и проверка модов
         run: |
+          python tools/selftest.py
+          python tools/check_mods.py --write
+      - name: Выложить снимок в ветку catalog
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          rm -rf /tmp/pub && mkdir /tmp/pub
+          cp -r index.json mods /tmp/pub/
+          cd /tmp/pub
+          git init -q -b catalog
           git config user.name "catalog-bot"
           git config user.email "catalog-bot@users.noreply.github.com"
-          git add index.json
-          git diff --cached --quiet || (git commit -m "Обновить index.json" && git push)
+          git add -A
+          git commit -q -m "Каталог из ${GITHUB_SHA}"
+          git remote add origin "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force origin catalog

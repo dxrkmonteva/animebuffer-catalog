@@ -1,4 +1,4 @@
-name: Проверка модов
+name: Проверка заявок
 
 on:
   pull_request:
@@ -7,6 +7,8 @@ on:
 
 jobs:
   check:
+    # Это имя показывается в списке проверок: именно его выбирают в «Require status checks»
+    name: Проверка модов
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
