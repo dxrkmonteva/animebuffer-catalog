@@ -1,0 +1,24 @@
+name: Проверка модов
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Проверку берём из main, а не из заявки: иначе автор мог бы подменить сам проверяльщик.
+      - name: Взять tools/ из main
+        run: git checkout "origin/${{ github.base_ref || 'main' }}" -- tools
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Самопроверка проверяльщика
+        run: python tools/selftest.py
+      - name: Проверка модов
+        run: python tools/check_mods.py --validate
