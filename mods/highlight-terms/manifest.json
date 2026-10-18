@@ -1,0 +1,13 @@
+{
+  "id": "highlight-terms",
+  "name": "Highlight Terms",
+  "author": "Dxrk",
+  "version": "1.0",
+  "description": "Подсвечивает заданные слова.",
+  "matches": [
+    "*"
+  ],
+  "frames": "top",
+  "runAt": "end",
+  "js": "script.js"
+}
